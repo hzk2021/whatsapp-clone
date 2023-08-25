@@ -9,6 +9,7 @@ import MessageRedirect from "../components/MessageRedirect";
 import { FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
+import whatsappIcon from "../assets/whatsapp.webp";
 
 function Register() {
 
@@ -101,13 +102,12 @@ function Register() {
                       justify-center
                       items-center
                       w-96
-                      h-96
                       rounded
                       shadow-md
                       bg-[#F3FDE8]">
 
                 <div className="form-wrapper flex flex-col h-full gap-2 p-8 w-full">
-                    <StyledName text="WhatsApp Clone" classes="app-name" />
+                    <StyledName text="WhatsApp Clone" classes="app-name" imgSrc={whatsappIcon} />
                     <StyledName text="Register" classes="title" className="text-base" />
 
                     <form className="flex flex-col justify-evenly h-full gap-4" onSubmit={createAccount}>
