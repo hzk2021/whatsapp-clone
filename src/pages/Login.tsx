@@ -72,7 +72,7 @@ function Login() {
                       bg-[#F3FDE8]">
 
         <div className="form-wrapper flex flex-col h-full gap-2 p-8 w-full">
-          <StyledName text="WhatsApp Clone" classes="app-name" imgSrc={whatsappIcon} />
+          <StyledName text="WhatsApp Clone" classes="app-name" imgsrc={whatsappIcon} />
           <StyledName text="Login" classes="title" className="text-base" />
 
           <form className="flex flex-col justify-evenly h-full" onSubmit={signInAccount}>
