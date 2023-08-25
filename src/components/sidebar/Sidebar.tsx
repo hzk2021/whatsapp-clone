@@ -1,10 +1,12 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from './navbar/Navbar'
+import Searchbar from './Searchbar'
 
 function Sidebar() {
     return (
         <>
             <Navbar />
+            <Searchbar />
         </>
     )
 }

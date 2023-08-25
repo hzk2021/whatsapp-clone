@@ -1,7 +1,7 @@
 import StyledInput from "../components/form/StyledInput";
 import StyledName from "../components/form/StyledName";
 import StyledSubmitButton from "../components/form/StyledSubmitButton";
-import MessageRedirect from "../components/MessageRedirect";
+import MessageRedirect from "../components/form/MessageRedirect";
 import { useLocation, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { FormEvent, useRef, useState } from "react";
