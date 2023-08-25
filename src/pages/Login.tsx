@@ -2,10 +2,15 @@ import StyledInput from "../components/form/StyledInput";
 import StyledName from "../components/form/StyledName";
 import StyledSubmitButton from "../components/form/StyledSubmitButton";
 import MessageRedirect from "../components/MessageRedirect";
+import { useLocation } from "react-router-dom";
+
 
 function Login() {
 
+  const { state } = useLocation();
+
   return (
+
     <section className="text-center
                         min-h-screen
                         flex 
@@ -14,6 +19,7 @@ function Login() {
                         items-center
                         bg-[#A8DF8E]
                         gap-2">
+      {state && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-2/5"> {state} </p>}
 
       <div className="flex
                       justify-center

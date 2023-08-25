@@ -1,8 +1,13 @@
 import React, { InputHTMLAttributes } from 'react'
 
-function StyledInput(props: InputHTMLAttributes<HTMLInputElement>) {
+interface inputProps extends InputHTMLAttributes<HTMLInputElement> {
+  innerref: React.LegacyRef<HTMLInputElement>
+}
+
+
+function StyledInput(props: inputProps) {
   return (
-    <input className='p-2 border-b-2 bg-transparent outline-none focus:border-[#FFE5E5]' {...props} />
+    <input className='p-2 border-b-2 bg-transparent outline-none focus:border-[#FFE5E5]' ref={props.innerref} {...props} />
   )
 }
 

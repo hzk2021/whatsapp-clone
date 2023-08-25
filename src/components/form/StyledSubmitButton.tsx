@@ -6,7 +6,7 @@ interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 function StyledSubmitButton(props: buttonProps) {
   return (
-    <button className="rounded-none p-3 bg-[#FFE5E5]" {...props}>{props.text}</button>
+    <button className="rounded-none p-3 bg-[#FFE5E5]" type="submit" {...props}>{props.text}</button>
   )
 }
 
