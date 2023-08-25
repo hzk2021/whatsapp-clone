@@ -8,11 +8,12 @@ function Navbar() {
 
     const user = useContext(AuthContext);
 
+
     return (
         <div className='flex items-center justify-between p-2 px-3'>
-            <img src={user ? user.photoURL! : "https://placehold.co/500x500.png"} className="w-[45px] h-[45px] rounded-3xl select-none" />
+            <img src={user ? user.photoURL! : "https://placehold.co/500x500.png"} className="w-[45px] h-[45px] rounded-3xl" />
 
-            <div className='function-icons flex gap-2 relative'>
+            <div className='function-icons flex gap-2'>
                 <CommunityButton />
                 <EllipsisButton />
             </div>

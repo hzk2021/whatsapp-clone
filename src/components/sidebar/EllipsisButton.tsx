@@ -19,7 +19,7 @@ function EllipsisButton() {
             <FaEllipsisVertical size={40} className={`cursor-pointer rounded-3xl p-2 ${active && "bg-[#FFE5E5]"}`} onClick={() => setActive(!active)} />
 
             {
-                active && <div className='absolute w-full shadow-xl rounded left-0 bg-[#F3FDE8] mt-2 text-center'>
+                active && <div className='absolute w-full shadow-xl rounded left-[45%] w-[49%] bg-[#F3FDE8] mt-2 text-center'>
                     <ul className='p-1'>
                         <li className='cursor-pointer hover:bg-[#FFE5E5]' onClick={logOut}>Log Out</li>
                     </ul>
