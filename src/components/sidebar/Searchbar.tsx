@@ -1,8 +1,11 @@
-import React from 'react'
+import { FaMagnifyingGlass } from "react-icons/fa6"
 
 function Searchbar() {
     return (
-        <div>Searchbar</div>
+        <div>
+            <FaMagnifyingGlass />
+            <input type="text" placeholder='Search chat'></input>
+        </div>
     )
 }
 

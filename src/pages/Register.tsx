@@ -5,7 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import StyledInput from "../components/form/StyledInput";
 import StyledName from "../components/form/StyledName";
 import StyledSubmitButton from "../components/form/StyledSubmitButton";
-import MessageRedirect from "../components/form/MessageRedirect";
+import MessageRedirect from "../components//form/MessageRedirect";
 import { FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
@@ -101,14 +101,16 @@ function Register() {
             <div className="flex
                       justify-center
                       items-center
-                      w-96
+                      w-64
+                      xs:w-72
+                      md:w-96
                       rounded
                       shadow-md
                       bg-[#F3FDE8]">
 
                 <div className="form-wrapper flex flex-col h-full gap-2 p-8 w-full">
-                    <StyledName text="WhatsApp Clone" classes="app-name" imgsrc={whatsappIcon} />
-                    <StyledName text="Register" classes="title" className="text-base" />
+                    <StyledName text="WhatsApp Clone" classes="app-name text-sm md:text-xl" imgsrc={whatsappIcon} />
+                    <StyledName text="Register" classes="title" className="text-xs md:text-base" />
 
                     <form className="flex flex-col justify-evenly h-full gap-4" onSubmit={createAccount}>
                         <StyledInput type="text" placeholder="Display Name" innerref={displayNameInput} required />

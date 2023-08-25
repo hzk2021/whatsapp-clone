@@ -59,13 +59,16 @@ function Login() {
                         bg-[#A8DF8E]
                         gap-2">
 
-      {state && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-2/5"> {state} </p>}
+      {state && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-3/5 sm:w-2/5"> {state} </p>}
       {error && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-2/5"> {error} </p>}
 
       <div className="flex
                       justify-center
                       items-center
-                      w-96
+                      w-86
+                      m-1
+                      md:m-0
+                      md:w-96
                       h-96
                       rounded
                       shadow-md
