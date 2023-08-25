@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthContext } from "./contexts/AuthContext";
 import { useContext } from "react";
+import Main from "./pages/Main";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
       <main className="font-mono">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={currentUser ? <h1>You are signed in!</h1> : <h1> You are NOT signed in</h1>} />
+            <Route path="/" element={currentUser ? <Main /> : <Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>
