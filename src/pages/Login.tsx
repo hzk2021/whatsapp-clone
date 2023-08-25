@@ -2,12 +2,50 @@ import StyledInput from "../components/form/StyledInput";
 import StyledName from "../components/form/StyledName";
 import StyledSubmitButton from "../components/form/StyledSubmitButton";
 import MessageRedirect from "../components/MessageRedirect";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { FormEvent, useRef, useState } from "react";
+import { auth } from "../config/firebase";
 
 
 function Login() {
 
+  const navigate = useNavigate();
   const { state } = useLocation();
+
+  const emailInput = useRef<HTMLInputElement>(null);
+  const passwordInput = useRef<HTMLInputElement>(null);
+
+  const [error, setError] = useState("");
+
+  async function signInAccount(e: FormEvent) {
+    e.preventDefault();
+
+    if (!emailInput.current || !passwordInput.current) return;
+    const email = emailInput.current.value;
+    const password = passwordInput.current.value
+
+    console.log(auth.currentUser);
+
+    try {
+      const signedIn = await signInWithEmailAndPassword(auth, email, password);
+      if (!signedIn.user.emailVerified) {
+        throw new Error("verification_error")
+      }
+
+      return navigate("/");
+
+    } catch (error: any) {
+      // console.error(error);
+
+      if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found" || error === "verification_error") {
+        await auth.signOut()
+        setError("Account not found, wrong password, or unverified email address");
+      }
+
+    }
+
+  }
 
   return (
 
@@ -19,7 +57,9 @@ function Login() {
                         items-center
                         bg-[#A8DF8E]
                         gap-2">
+
       {state && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-2/5"> {state} </p>}
+      {error && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-2/5"> {error} </p>}
 
       <div className="flex
                       justify-center
@@ -34,10 +74,9 @@ function Login() {
           <StyledName text="WhatsApp Clone" classes="app-name" />
           <StyledName text="Login" classes="title" className="text-base" />
 
-          <form className="flex flex-col justify-evenly h-full">
-            <StyledInput type="email" placeholder="Email" />
-            <StyledInput type="password" placeholder="Password" />
-
+          <form className="flex flex-col justify-evenly h-full" onSubmit={signInAccount}>
+            <StyledInput type="email" placeholder="Email" innerref={emailInput} required />
+            <StyledInput type="password" placeholder="Password" innerref={passwordInput} required />
 
             <StyledSubmitButton text="Sign In" />
           </form>
