@@ -102,7 +102,7 @@ function Register() {
                       justify-center
                       items-center
                       w-64
-                      xs:w-72
+                      xs:w-72git
                       md:w-96
                       rounded
                       shadow-md

@@ -28,7 +28,7 @@ function Users() {
             {users ?
                 users.map((u) =>
 
-                    <li className="flex place-items-center gap-3 border-b border-solid pb-1 mb-3"
+                    <li className="flex place-items-center gap-3 border-b border-solid pb-1 mb-3 box-border h-[40px]"
                         key={u.uid}>
                         <img src={u.photoURL} className="w-[50px]" />
                         <span>{u.displayName}</span>
