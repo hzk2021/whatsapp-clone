@@ -19,7 +19,7 @@ function Navbar() {
 
     return (
         <>
-            <div className='navbar flex items-center p-2 outline w-full'>
+            <div className='navbar flex items-center p-2 w-full'>
                 <img src="https://lh3.googleusercontent.com/a/AAcHTtc5Xzw0s_Cj184TvImbTTTXxq1STyGapoK-7YM8682VgIM=s576-c-no"
                     className="w-[50px] h-[50px] rounded-3xl bg-white p-1" />
 

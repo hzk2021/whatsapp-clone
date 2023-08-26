@@ -7,7 +7,7 @@ type usersSectionProps = {
 
 function UsersSection(props: usersSectionProps) {
     return (
-        <div className='absolute top-0 left-0 h-full w-full bg-white z-[2] flex flex-col'>
+        <div className='absolute top-0 left-0 h-full w-full bg-white z-[2] flex flex-col w-full'>
 
             <div className='top flex p-3 gap-3 items-center'>
                 <FaArrowLeft className='cursor-pointer' onClick={props.backAction} />

@@ -33,7 +33,7 @@ function Users() {
                         <img src={u.photoURL} className="w-[50px]" />
                         <span>{u.displayName}</span>
                         {/* <span>{u.uid}</span> */}
-                        <MdMessage className="ml-auto" />
+                        <MdMessage className="ml-auto" size={20} />
                     </li>)
 
                 : null
