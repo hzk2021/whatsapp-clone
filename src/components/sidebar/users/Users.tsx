@@ -28,9 +28,9 @@ function Users() {
             {users ?
                 users.map((u) =>
 
-                    <li className="flex place-items-center gap-3 border-b border-solid pb-1 mb-3 box-border h-[40px]"
+                    <li className="flex items-center sm:place-items-center gap-3 border-b border-solid pb-1 mb-3 box-border h-[40px]"
                         key={u.uid}>
-                        <img src={u.photoURL} className="w-[50px]" />
+                        <img src={u.photoURL} className="w-8 sm:w-12" />
                         <span>{u.displayName}</span>
                         {/* <span>{u.uid}</span> */}
                         <MdMessage className="ml-auto" size={20} />

@@ -5,13 +5,11 @@ import Input from './Input'
 
 function Chatbox() {
     return (
-        <div className='p-2 px-4 flex flex-col h-full'>
+        <div className='flex flex-col h-full border-l border-solid'>
             <Header />
 
-            <div className='grow p-2 m-2 overflow-y-scroll'>
-                <Conversation />
+            <Conversation />
 
-            </div>
 
             <div className=''>
                 <Input />

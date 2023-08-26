@@ -3,7 +3,7 @@ import ActiveChatTab from './ActiveChatTab'
 
 function ActiveChats() {
     return (
-        <div className='m-2 overflow-y-scroll flex flex-col gap-2'>
+        <div className='overflow-y-scroll flex flex-col'>
             <ActiveChatTab />
             <ActiveChatTab />
             <ActiveChatTab />
