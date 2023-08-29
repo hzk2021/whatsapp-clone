@@ -13,6 +13,9 @@ interface chatMappingInterface {
         displayName: string,
         photoURL: string,
         uid: string
+    },
+    latestMessage: {
+        text: string
     }
 }
 
@@ -42,6 +45,9 @@ function ActiveChats() {
                             displayName: chat[1].userInfo.displayName,
                             photoURL: chat[1].userInfo.photoURL,
                             uid: chat[1].userInfo.uid
+                        },
+                        latestMessage: {
+                            text: chat[1].latestMessage?.text || ''
                         }
                     })
                 });
@@ -68,10 +74,15 @@ function ActiveChats() {
     return (
         <div className='overflow-y-scroll flex flex-col'>
             {
-                chats.map((chat) => {
+
+                chats.sort((a, b) => {
+                    return a.date && b.date ? b.date.toMillis() - a.date.toMillis() : 0
+                }
+                ).map((chat) => {
                     return <ActiveChatTab key={chat.chatID}
                         photoURL={chat.userInfo.photoURL}
                         displayName={chat.userInfo.displayName}
+                        latestMessage={chat.latestMessage.text || ''}
                         onClick={() => handleSelect(chat)} />
                 })
             }

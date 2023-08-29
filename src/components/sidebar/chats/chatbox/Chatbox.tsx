@@ -13,14 +13,20 @@ function Chatbox() {
 
     return (
         <div className='flex flex-col h-full border-l border-solid'>
-            <Header displayName={displayName} photoURL={photoURL} />
 
-            <Conversation chatID={chatId} />
+            {
+                chatContext?.data.userInfo ?
+                    <>
+                        <Header displayName={displayName} photoURL={photoURL} />
+                        <Conversation chatId={chatId} />
+                        <div className=''>
+                            <Input />
+                        </div>
+                    </>
+                    : null
+            }
 
 
-            <div className=''>
-                <Input />
-            </div>
         </div>
     )
 }

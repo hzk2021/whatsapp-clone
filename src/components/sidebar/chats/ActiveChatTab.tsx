@@ -3,7 +3,7 @@ import React from 'react'
 interface chatTabProps {
     photoURL: string,
     displayName: string,
-    lastMessage?: string,
+    latestMessage: string,
     onClick?: () => void
 }
 
@@ -16,7 +16,7 @@ function ActiveChatTab(props: chatTabProps) {
 
             <div className='flex flex-col grow truncate'>
                 <p>{props.displayName}</p>
-                <p className='truncate'>hello this is fuudfuudfuudfuudfuudfuudfuudfuudfuudfuud</p>
+                <p className='truncate'>{props.latestMessage}</p>
             </div>
 
         </div>

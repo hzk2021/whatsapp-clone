@@ -3,11 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { db } from "../../../config/firebase";
 import { MdMessage } from "react-icons/md"
 import { AuthContext } from "../../../contexts/AuthContext";
+import { ChatContext } from "../../../contexts/ChatContext";
 
 function Users() {
 
     const [users, setUsers] = useState<DocumentData[]>();
     const currentUser = useContext(AuthContext);
+
+    const chatContext = useContext(ChatContext);
 
     useEffect(() => {
 
@@ -57,6 +60,15 @@ function Users() {
                     [combinedUsersIds + ".date"]: serverTimestamp()
                 })
             }
+
+            chatContext?.dispatch({
+                type: "CHANGE_USER",
+                payload: {
+                    uid: userID,
+                    displayName: userDisplayName,
+                    photoURL: userPhotoURL
+                }
+            })
         } catch (error) {
             console.error(error);
         }
