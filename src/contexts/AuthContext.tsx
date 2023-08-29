@@ -7,9 +7,13 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     const [currentUser, setCurrentUser] = useState<User | null>(null);
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsub = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
         })
+
+        return () => {
+            unsub();
+        }
     }, []);
 
     return (

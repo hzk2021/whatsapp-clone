@@ -26,22 +26,22 @@ function Login() {
     const email = emailInput.current.value;
     const password = passwordInput.current.value
 
-    console.log(auth.currentUser);
+    // console.log(auth.currentUser);
 
     try {
-      const signedIn = await signInWithEmailAndPassword(auth, email, password);
-      if (!signedIn.user.emailVerified) {
-        throw new Error("verification_error")
-      }
+      await signInWithEmailAndPassword(auth, email, password);
+      // if (!signedIn.user.emailVerified) {
+      //   throw new Error("verification_error")
+      // }
 
       return navigate("/");
 
     } catch (error: any) {
-      // console.error(error);
+      console.log(auth.currentUser);
 
-      if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found" || error === "verification_error") {
-        await auth.signOut()
+      if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found" || String(error) === "Error: verification_error") {
         setError("Account not found, wrong password, or unverified email address");
+        await auth.signOut()
       }
 
     }
