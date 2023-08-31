@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaPeopleGroup } from 'react-icons/fa6'
 import { FaEllipsisVertical } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../config/firebase';
+import { AuthContext } from '../../../contexts/AuthContext';
 import UsersSection from '../users/UsersSection';
 
 function Navbar() {
+
+    const currentUser = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -20,7 +23,7 @@ function Navbar() {
     return (
         <>
             <div className='navbar flex items-center p-2 w-full border-b border-solid'>
-                <img src="https://lh3.googleusercontent.com/a/AAcHTtc5Xzw0s_Cj184TvImbTTTXxq1STyGapoK-7YM8682VgIM=s576-c-no"
+                <img src={currentUser!.photoURL!}
                     className="w-[0px] h-[50px] rounded-3xl p-1 sm:w-[50px] sm:bg-[#FFE5E5]" />
 
                 <ol className='flex mx-auto gap-5 relative sm:mx-0 sm:ml-auto'>

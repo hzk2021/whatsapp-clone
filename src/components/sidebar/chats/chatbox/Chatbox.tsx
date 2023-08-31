@@ -18,7 +18,7 @@ function Chatbox() {
                 chatContext?.data.userInfo ?
                     <>
                         <Header displayName={displayName} photoURL={photoURL} />
-                        <Conversation chatId={chatId} />
+                        <Conversation chatId={chatId} receiverPhotoURL={photoURL} />
                         <div className=''>
                             <Input />
                         </div>

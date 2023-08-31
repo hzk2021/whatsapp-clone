@@ -1,20 +1,45 @@
-import { doc, onSnapshot } from 'firebase/firestore';
-import { useEffect, useState } from 'react'
+import { doc, onSnapshot, Timestamp } from 'firebase/firestore';
+import { useContext, useEffect, useState } from 'react'
 import { db } from '../../../../config/firebase';
+import { AuthContext } from '../../../../contexts/AuthContext';
 import Message from './Message'
 
 interface conversationProps {
-    chatId: string
+    chatId: string,
+    receiverPhotoURL: string
 }
 
-function Conversation({ chatId }: conversationProps) {
+interface messageTypeProps {
+    date: Timestamp,
+    id: string,
+    senderId: string,
+    text: string
+}
 
-    const [messages, setMessages] = useState();
+function Conversation({ chatId, receiverPhotoURL }: conversationProps) {
+
+    const currentUser = useContext(AuthContext);
+    const [messages, setMessages] = useState<messageTypeProps[] | null>(null);
 
     useEffect(() => {
         const unsub = onSnapshot(doc(db, "chats", chatId), doc => {
-            console.log(doc.data())
+            const res = Object.entries(doc.data() as object);
+
+            const tempArray: messageTypeProps[] = [];
+
+            // @ts-expect-error : type of any
+            res[0][1].forEach(m => {
+
+                tempArray.push({
+                    date: m.date,
+                    id: m.id,
+                    senderId: m.senderId,
+                    text: m.text
+                })
+            })
+            setMessages(tempArray)
         });
+
 
         return () => {
             unsub();
@@ -23,15 +48,18 @@ function Conversation({ chatId }: conversationProps) {
 
     return (
         <div className='conversation overflow-y-scroll grow p-4 m-4 flex flex-col gap-3'>
-            <Message owner={false} />
-            <Message owner={true} />
-            <Message owner={true} />
-            <Message owner={true} />
-            <Message owner={false} />
-            <Message owner={true} />
-            <Message owner={false} />
-            <Message owner={true} />
-            <Message owner={true} />
+
+            {
+                messages?.map(m => {
+                    return <Message owner={currentUser!.uid === m.senderId}
+                        key={m.id}
+                        date={m.date}
+                        id={m.id}
+                        senderId={m.senderId}
+                        text={m.text}
+                        photoURL={currentUser!.uid === m.senderId ? currentUser!.photoURL : receiverPhotoURL} />
+                })
+            }
 
         </div>
     )
