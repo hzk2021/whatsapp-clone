@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { FaPeopleGroup } from 'react-icons/fa6'
 import { FaEllipsisVertical } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom';

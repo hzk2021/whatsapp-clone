@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import ActiveChatTab from './ActiveChatTab'
 import { doc, onSnapshot, Timestamp } from 'firebase/firestore'
 import { db } from '../../../config/firebase';

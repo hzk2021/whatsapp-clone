@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ChatContext } from '../../../../contexts/ChatContext';
 import Conversation from './Conversation'
 import Header from './Header'

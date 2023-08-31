@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface headerProps {
     displayName: string,
     photoURL: string,

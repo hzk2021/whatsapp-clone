@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface chatTabProps {
     photoURL: string,
     displayName: string,
