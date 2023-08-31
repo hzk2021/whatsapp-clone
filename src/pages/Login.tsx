@@ -48,6 +48,13 @@ function Login() {
 
   }
 
+
+  function populateFields() {
+    emailInput.current!.value = import.meta.env.VITE_EMAIL
+    passwordInput.current!.value = import.meta.env.VITE_PASSWORD
+
+  }
+
   useEffect(() => {
     document.title = "WhatsApp - Login"
   }, []);
@@ -61,11 +68,15 @@ function Login() {
                         justify-center 
                         items-center
                         bg-[#A8DF8E]
-                        gap-2">
+                        gap-5">
 
       {error && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-2/5"> {error} </p>}
       {(!error && state) && <p className="absolute top-10 bg-[#ffbfbf] p-2 w-3/5 sm:w-2/5"> {state} </p>}
-
+      <p>
+        Don't want to register?
+        <button className="underline underline-offset-4 p-2"
+          onClick={populateFields}>Populate fields</button>
+      </p>
       <div className="flex
                       justify-center
                       items-center
