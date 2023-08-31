@@ -81,9 +81,9 @@ function Users() {
 
                     currentUser!.uid !== u.uid &&
 
-                    <li className="flex items-center sm:place-items-center gap-3 border-b border-solid pb-1 mb-3 box-border h-[40px]"
+                    <li className="flex items-center sm:place-items-center gap-3 border-b border-solid border-gray-500 pb-1 mb-3 box-border"
                         key={u.uid}>
-                        <img src={u.photoURL} className="w-8 sm:w-12" />
+                        <img src={u.photoURL} className="w-8 sm:w-12 h-full rounded-3xl" />
                         <span>{u.displayName}</span>
                         {/* <span>{u.uid}</span> */}
                         <MdMessage className="ml-auto cursor-pointer" size={20} onClick={() => handleSelect(u.uid, u.displayName, u.photoURL)} />

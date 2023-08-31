@@ -1,12 +1,17 @@
 
+import { useEffect } from 'react'
 import Chatbox from '../components/sidebar/chats/chatbox/Chatbox'
 import Sidebar from '../components/sidebar/Sidebar'
 
 
 function Main() {
 
+    useEffect(() => {
+        document.title = "WhatsApp - Chat"
+    }, []);
+
     return (
-        <div className='main-wrapper h-screen flex bg-[#A8DF8E] text-xs sm:text-sm md:text-base min-w-[500px] min-h-screen'>
+        <div className='main-wrapper h-screen flex bg-[#A8DF8E] text-xs sm:text-sm md:text-base min-h-screen'>
             <div className='flex w-full h-[100%] m-auto shadow-2xl bg-[#F3FDE8] xl:w-11/12 xl:h-[95%]'>
 
 

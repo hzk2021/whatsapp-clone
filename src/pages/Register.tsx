@@ -6,7 +6,7 @@ import StyledInput from "../components/form/StyledInput";
 import StyledName from "../components/form/StyledName";
 import StyledSubmitButton from "../components/form/StyledSubmitButton";
 import MessageRedirect from "../components//form/MessageRedirect";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import whatsappIcon from "../assets/whatsapp.webp";
@@ -87,6 +87,10 @@ function Register() {
             setError(error.code);
         }
     }
+
+    useEffect(() => {
+        document.title = "WhatsApp - Register"
+    }, []);
 
     return (
         <section className="text-center

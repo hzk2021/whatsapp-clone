@@ -9,14 +9,15 @@ interface chatTabProps {
 
 function ActiveChatTab(props: chatTabProps) {
     return (
-        <div className='px-3 h-12 flex items-center gap-3 text-ellipsis cursor-pointer border-b border-solid hover:bg-[#FFE5E5]'
+        <div className='px-3 h-12 flex items-center gap-3 text-ellipsis cursor-pointer hover:bg-[#FFE5E5] py-8
+            border-solid border-gray-300 border-b'
             onClick={props.onClick}>
             <img src={props.photoURL}
-                className='h-[35px] rounded-3xl w-[35px] border-none' />
+                className='h-[45px] rounded-3xl w-[45px] border-none' />
 
-            <div className='flex flex-col grow truncate'>
+            <div className='flex flex-col grow truncate border-b'>
                 <p>{props.displayName}</p>
-                <p className='truncate'>{props.latestMessage}</p>
+                <p className='truncate text-gray-500'>{props.latestMessage}</p>
             </div>
 
         </div>

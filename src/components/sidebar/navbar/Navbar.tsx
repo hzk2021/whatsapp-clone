@@ -22,15 +22,15 @@ function Navbar() {
 
     return (
         <>
-            <div className='navbar flex items-center p-2 w-full border-b border-solid'>
+            <div className='navbar flex items-center p-2 w-full border-b border-solid border-gray-500'>
                 <img src={currentUser!.photoURL!}
-                    className="w-[0px] h-[50px] rounded-3xl p-1 sm:w-[50px] sm:bg-[#FFE5E5]" />
+                    className="w-[0px] h-[50px] rounded-3xl p-[1px] sm:w-[50px] sm:bg-[#FFE5E5]" />
 
                 <ol className='flex mx-auto gap-5 relative sm:mx-0 sm:ml-auto'>
-                    <li className={`cursor-pointer rounded-3xl p-1 ${(activeTab === 'usersList') && 'bg-white'}`}>
+                    <li className={`cursor-pointer rounded-3xl p-1 ${(activeTab === 'usersList') && 'bg-[#FFE5E5]'}`}>
                         <FaPeopleGroup size={25} onClick={() => activeTab === 'usersList' ? setActiveTab('') : setActiveTab('usersList')} />
                     </li>
-                    <li className={`cursor-pointer rounded-3xl p-1 ${(activeTab === 'moreOptions') && 'bg-white'}`}>
+                    <li className={`cursor-pointer rounded-3xl p-1 ${(activeTab === 'moreOptions') && 'bg-[#FFE5E5]'}`}>
                         <FaEllipsisVertical size={25} onClick={() => activeTab === 'moreOptions' ? setActiveTab('') : setActiveTab('moreOptions')} />
                     </li>
 

@@ -4,7 +4,7 @@ import StyledSubmitButton from "../components/form/StyledSubmitButton";
 import MessageRedirect from "../components/form/MessageRedirect";
 import { useLocation, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { auth } from "../config/firebase";
 import whatsappIcon from "../assets/whatsapp.webp";
 
@@ -47,6 +47,10 @@ function Login() {
     }
 
   }
+
+  useEffect(() => {
+    document.title = "WhatsApp - Login"
+  }, []);
 
   return (
 
